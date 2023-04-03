@@ -1,4 +1,6 @@
+
 # kusagagi 運行プロセス理解
+
 
 ## １、流れ図
 ![流れ図](./img/1.png)
@@ -31,6 +33,8 @@ k_print_red(): kusanagiのprint関数
 
 async_read_stream(reader, handler=dispatch_handler, logger=self._logger)の関数dispatch_handlerはデータに対して返されるハンドラー関数，この関数によって実行される async_dispatch_stream 関数，主なロジックは、dispatchers/scripts/dispatcher が bash ファイルを実行すること，例: kusanagi nginx --test は、dispatchers/scripts/dispatcher nginx を実行する。
 
+最後kusanagi nginx --testコマンドの実行のコマンドは：
+![](./img/5.png)
 ## 3、コード フォルダーの理解
 ``` 
 .
@@ -126,3 +130,5 @@ dispatchers/scripts/dispatcher はbashファイルで、最後のコマンドに
 
 subparsersフォルダは各種コマンドの正当性判定ロジック
 ## 4、その他
+#####　研究している問題：
+１，なぜkusanagiはclient・serverアーキテクチャーを採用している
